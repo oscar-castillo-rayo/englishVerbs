@@ -1,0 +1,80 @@
+/* reset styles */
+:root {
+  --main-font: sans-serif;
+  --font-size: 16px;
+  --main-color: #f7df1e;
+  --second-color: #222;
+  --main-modal-color: rgba(247, 222, 30, 0.85);
+  --second-modal-color: rgba(34, 34, 34, 0.85);
+  --container-width: 1200px;
+  /* To add my variables */
+}
+
+html {
+  box-sizing: border-box;
+  font-family: var(--main-font);
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+/* own styles */
+.menu-verb-option {
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2rem;
+}
+.crud-table {
+  margin: auto;
+}
+.flex-row-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  margin: 0;
+  padding: 1rem;
+  background-color: #f7df1e;
+}
+thead tr {
+  border: 2px solid;
+}
+thead th {
+  border: 2px solid;
+}
+tbody td {
+  border: 1px solid;
+  text-align: center;
+}
+.verb-option {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  padding: 2rem;
+  margin: 1rem;
+  width: 18rem;
+  height: 10rem;
+}
+.verb-option > * {
+  margin: 0.2rem;
+}

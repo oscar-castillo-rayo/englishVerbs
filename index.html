@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>English verbs</title>
+</head>
+
+<body>
+  <header>
+    <h1>English Verbs</h1>
+  </header>
+
+  <main>
+    <div class="menu-verb-option">
+      <section class="verb-option">
+        <label>Mostrar 10 verbos aleatorios</label>
+        <div>
+          <button class="agregar-aleatorios">Mostrar 10 verbos</button>
+          <button class="reset-random">reset</button>
+        </div>
+        <label>Mostrar todos los verbos</label>
+        <button class="mostrar-todos">Mostrar Todos</button>
+      </section>
+      <section class="verb-option">
+        <label>Buscar</label>
+        <div>
+          <input class="search-verbs-input" type="text" pattern="^[A-Za-z\s\-']+$">
+          <button class="search-verbs-btn">buscar</button>
+        </div>
+      </section>
+    </div>
+    <hr>
+    <table class="crud-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>TYPE</th>
+          <th>SIMPLE FORM</th>
+          <th>THIRD PERSON</th>
+          <th>SIMPLE PAST</th>
+          <th>PAST PARTICIPLE</th>
+          <th>GERUND</th>
+          <th>MEANING</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="notificacion-verbs flex-row-center">
+      <p></p>
+    </div>
+  </main>
+
+  <template id="dataTemplate">
+    <tr>
+      <td class="id"></td>
+      <td class="type"></td>
+      <td class="simple-form"></td>
+      <td class="third-person"></td>
+      <td class="simplePast"></td>
+      <td class="pastPasticiple"></td>
+      <td class="gerund"></td>
+      <td class="meaning"></td>
+    </tr>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>
