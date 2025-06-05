@@ -14,58 +14,34 @@
   </header>
 
   <main>
-    <div class="menu-verb-option">
-      <section class="verb-option">
-        <label>Mostrar 10 verbos aleatorios</label>
-        <div>
-          <button class="agregar-aleatorios">Mostrar 10 verbos</button>
-          <button class="reset-random">reset</button>
-        </div>
-        <label>Mostrar todos los verbos</label>
-        <button class="mostrar-todos">Mostrar Todos</button>
-      </section>
-      <section class="verb-option">
-        <label>Buscar</label>
-        <div>
-          <input class="search-verbs-input" type="text" pattern="^[A-Za-z\s\-']+$">
-          <button class="search-verbs-btn">buscar</button>
-        </div>
-      </section>
+    <div class="controls-section">
+      <input type="search" id="search-input" placeholder="Search verbs...">
+      <select id="type-filter">
+        <option value="all">All Types</option>
+        <option value="R">Regular</option>
+        <option value="I">Irregular</option>
+      </select>
+      <button id="show-all-btn">Show All Verbs</button>
+      <button id="show-random-btn">Show 10 Random Verbs</button>
     </div>
     <hr>
-    <table class="crud-table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>TYPE</th>
-          <th>SIMPLE FORM</th>
-          <th>THIRD PERSON</th>
-          <th>SIMPLE PAST</th>
-          <th>PAST PARTICIPLE</th>
-          <th>GERUND</th>
-          <th>MEANING</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
+    <main id="verb-cards-container"></main>
     <div class="notificacion-verbs flex-row-center">
       <p></p>
     </div>
   </main>
 
   <template id="dataTemplate">
-    <tr>
-      <td class="id"></td>
-      <td class="type"></td>
-      <td class="simple-form"></td>
-      <td class="third-person"></td>
-      <td class="simplePast"></td>
-      <td class="pastPasticiple"></td>
-      <td class="gerund"></td>
-      <td class="meaning"></td>
-    </tr>
+    <div class="verb-card">
+      <h3 class="verb-simple-form"></h3>
+      <p>Type: <span class="verb-type"></span></p>
+      <p>Third Person: <span class="verb-third-person"></span></p>
+      <p>Simple Past: <span class="verb-simple-past"></span></p>
+      <p>Past Participle: <span class="verb-past-participle"></span></p>
+      <p>Gerund: <span class="verb-gerund"></span></p>
+      <p>Meaning: <span class="verb-meaning"></span></p>
+    </div>
   </template>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./script.js"></script>
 </body>
 

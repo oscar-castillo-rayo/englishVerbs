@@ -34,47 +34,198 @@ video {
   height: auto;
 }
 /* own styles */
-.menu-verb-option {
-  margin: 1rem;
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: #f0f0f0; /* Light gray background for the body */
+  color: #333; /* Default text color */
+}
+
+header {
+  background-color: var(--main-color); /* Using existing variable */
+  color: var(--second-color); /* Using existing variable */
+  padding: 1rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+.controls-section {
   display: flex;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
   justify-content: center;
   align-items: center;
-  margin: 0 2rem;
+  padding: 1rem;
+  margin: 1rem auto;
+  max-width: var(--container-width);
+  gap: 1rem; /* Space between control elements */
 }
-.crud-table {
-  margin: auto;
+
+.controls-section input[type="search"],
+.controls-section select,
+.controls-section button {
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
 }
-.flex-row-center {
+
+.controls-section input[type="search"] {
+  flex-grow: 1; /* Allow search input to take more space */
+  min-width: 200px; /* Minimum width for search input */
+}
+
+.controls-section button {
+  background-color: var(--main-color);
+  color: var(--second-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.controls-section button:hover {
+  background-color: #e0cf1b; /* Slightly darker shade for hover */
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #ddd;
+  margin: 1rem 0;
+}
+
+#verb-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 1.5rem; /* Space between cards */
+  padding: 1rem;
+  max-width: var(--container-width);
+  margin: 0 auto; /* Center the container */
+}
+
+.verb-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Space between items within a card */
+}
+
+.verb-card h3.verb-simple-form {
+  font-size: 1.5rem;
+  color: var(--second-color);
+  margin: 0 0 0.5rem 0; /* Margin at the bottom */
+  font-weight: bold;
+}
+
+.verb-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.verb-card p span {
+  font-weight: normal;
+  color: #555;
+}
+
+/* Style for the labels (e.g., "Type:", "Third Person:") */
+.verb-card p::before {
+  /* content: attr(data-label); Could use this if we add data-label attributes */
+  /* For now, relying on text content in HTML template */
+  font-weight: bold;
+  color: #333;
+}
+
+
+.notificacion-verbs {
+  position: fixed; /* Or absolute, depending on desired behavior */
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--second-modal-color); /* Using existing variable */
+  color: var(--main-color); /* Using existing variable */
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 1000; /* Ensure it's above other content */
+  text-align: center;
+  display: none; /* Initially hidden, JS will show it */
+}
+
+.notificacion-verbs.active {
+  display: block;
+}
+
+.flex-row-center { /* This class was already there, might be used by notificacion-verbs or other elements */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-h1 {
-  text-align: center;
-  margin: 0;
-  padding: 1rem;
-  background-color: #f7df1e;
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .controls-section {
+    flex-direction: column;
+    align-items: stretch; /* Make controls take full width */
+  }
+
+  .controls-section input[type="search"],
+  .controls-section select,
+  .controls-section button {
+    width: 100%; /* Full width for controls on smaller screens */
+    margin-bottom: 0.5rem; /* Add some space when stacked */
+  }
+
+  #verb-cards-container {
+    grid-template-columns: 1fr; /* Single column for cards on small screens */
+    padding: 1rem;
+  }
+
+  .verb-card {
+    padding: 1rem;
+  }
+
+  .verb-card h3.verb-simple-form {
+    font-size: 1.3rem;
+  }
 }
-thead tr {
-  border: 2px solid;
-}
-thead th {
-  border: 2px solid;
-}
-tbody td {
-  border: 1px solid;
-  text-align: center;
-}
-.verb-option {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid;
-  padding: 2rem;
-  margin: 1rem;
-  width: 18rem;
-  height: 10rem;
-}
-.verb-option > * {
-  margin: 0.2rem;
+
+@media (max-width: 480px) {
+  :root {
+    --font-size: 14px; /* Slightly smaller base font for very small screens */
+  }
+
+  header {
+    padding: 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.5rem; /* Adjust h1 font size */
+  }
+
+  .controls-section {
+    padding: 0.75rem;
+  }
+
+  .verb-card h3.verb-simple-form {
+    font-size: 1.2rem;
+  }
+
+  .verb-card p {
+    font-size: 0.9rem;
+  }
+
+  .notificacion-verbs {
+    padding: 0.75rem 1rem;
+    bottom: 0.5rem;
+    width: 90%; /* More width for notification on small screens */
+  }
 }
